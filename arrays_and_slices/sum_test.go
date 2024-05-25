@@ -18,9 +18,18 @@ func TestSum(t *testing.T) {
 		}
 	})
 
-	t.Run("", func(t *testing.T) {
+	t.Run("sum all elements", func(t *testing.T) {
 		got := SumAll([]int{1, 2}, []int{0, 9})
 		want := []int{3, 9}
+
+		if !reflect.DeepEqual(got, want) {
+			t.Errorf("got %v want %v", got, want)
+		}
+	})
+
+	t.Run("sum all elements(tails) apart from first one(head)", func(t *testing.T) {
+		got := SumAllTails([]int{1, 2, 3}, []int{0, 9, 2})
+		want := []int{5, 11}
 
 		if !reflect.DeepEqual(got, want) {
 			t.Errorf("got %v want %v", got, want)
