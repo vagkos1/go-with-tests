@@ -12,13 +12,18 @@ func Hello(name string, language string) string {
 	if name == "" {
 		return englishHelloPrefix + "World"
 	}
-	if language == spanish {
-		return spanishHelloPrefix + name
+	var prefix string
+
+	switch language {
+	case french:
+		prefix = frenchHelloPrefix
+	case spanish:
+		prefix = spanishHelloPrefix
+	default:
+		prefix = englishHelloPrefix
 	}
-	if language == french {
-		return frenchHelloPrefix + name
-	}
-	return englishHelloPrefix + name
+
+	return prefix + name
 }
 
 func main() {
